@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPS Tracking</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f3f2f1; 
+            margin: 0; 
+            padding: 0;
+            background-image: url('/UPS-Image-732x384.jpg'); /* Replace 'background.jpg' with your image URL */
+            background-size: 2000px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .header { background-color: #341f1f; color: white; padding: 15px; text-align: left; font-size: 20px; display: flex; align-items: center; justify-content: space-between; }
+        .header img { height: 40px; margin-right: 10px; }
+        .header .right-section { display: flex; gap: 20px; align-items: center; font-size: 14px; }
+        .container { max-width: 900px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        .tracking-box { text-align: center; padding: 20px; }
+        .hidden { display: none; }
+        .btn { background-color: #00704a; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        .btn:hover { background-color: #005a3c; }
+        .tracking-info { text-align: left; }
+        .tracking-info h2 { color: black; }
+        .tracking-info p { font-size: 16px; }
+        .error { color: red; text-align: center; font-size: 14px; }
+        .tracking-input { width: 100%; padding: 10px; font-size: 16px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        .tracking-result-container { display: flex; justify-content: space-between; align-items: center; }
+        .tracking-details { flex: 1; padding-right: 20px; }
+        .tracking-status { flex: 1; background: #f3f2f1; padding: 15px; border-radius: 5px; }
+        .status-line { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #00704a; color: white; border-radius: 5px;}
+    </style>
+    <script>
+        function trackPackage() {
+            var trackingNumber = document.getElementById("trackingNumber").value;
+            var errorMessage = document.getElementById("errorMessage");
+            if (trackingNumber === "67904754JP") {
+                document.getElementById("trackingForm").classList.add("hidden");
+                document.getElementById("trackingResult").classList.remove("hidden");
+                errorMessage.innerText = "";
+            } else {
+                errorMessage.innerText = "Tracking number not found. Please try again.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="/download (1).jpg" alt="UPS Logo"> <span>UPS Tracking</span>
+        </div>
+        <div class="right-section">
+            <span>Locations</span>
+            <span>United States - English</span>
+            <span>Sign up / Log in</span>
+            <span>Search or Track</span>
+        </div>
+    </div>
+
+    <div class="container" id="trackingForm">
+        <div class="tracking-box">
+            <h2>Tracking</h2>
+            <p>Enter your tracking number below:</p>
+            <input type="text" id="trackingNumber" class="tracking-input" placeholder="Enter tracking number">
+            <button class="btn" onclick="trackPackage()">Track</button>
+            <p id="errorMessage" class="error"></p>
+        </div>
+    </div>
+
+    <div class="container hidden" id="trackingResult">
+        <h2>Delivered</h2>
+        <div class="status-line">
+            <span>On Hold</span>
+            <span>&#10004;</span>
+        </div>
+        <div class="tracking-result-container">
+            <div class="tracking-details">
+                <p><strong>Schdule Delivery:</strong> Thursday, 20/03/2025</p>
+                <p><strong>Delivery Time:</strong> 4:42 P.M.</p>
+                <p><strong>Hold by:</strong> Local Police</p>
+                <p><strong>Location:</strong> TX, US</p>
+                <p> <strong> Receiver's Address:</strong> 16 Ajegunle Street Ago iwoye</p>
+                <p> <strong> Receiver's Name:</strong> Adedayo Samuel</p>
+            </div>
+            <div class="tracking-status">
+                <p><strong>Status:</strong> On hold</p>
+                <p><strong>Proof of Delivery:</strong> Available</p>
+                <p><a href="#">View Proof</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
