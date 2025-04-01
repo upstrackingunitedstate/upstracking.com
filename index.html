@@ -10,8 +10,8 @@
             background-color: #f3f2f1; 
             margin: 0; 
             padding: 0;
-            background-image: url('UPS-Image-732x384.jpg'); /* Replace 'background.jpg' with your image URL */
-            background-size: 2000px;
+            background-image: url('/UPS-Image-732x384.jpg'); /* Replace 'background.jpg' with your image URL */
+            background-size: 1200px;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -37,7 +37,7 @@
         function trackPackage() {
             var trackingNumber = document.getElementById("trackingNumber").value;
             var errorMessage = document.getElementById("errorMessage");
-            if (trackingNumber === "67904754JP") {
+            if (trackingNumber === "6790477854JP") {
                 document.getElementById("trackingForm").classList.add("hidden");
                 document.getElementById("trackingResult").classList.remove("hidden");
                 errorMessage.innerText = "";
@@ -50,7 +50,7 @@
 <body>
     <div class="header">
         <div style="display: flex; align-items: center;">
-            <img src="download (1).jpg" alt="UPS Logo"> <span>UPS Tracking</span>
+            <img src="/download (1).jpg" alt="UPS Logo"> <span>UPS Tracking</span>
         </div>
         <div class="right-section">
             <span>Locations</span>
@@ -71,22 +71,22 @@
     </div>
 
     <div class="container hidden" id="trackingResult">
-        <h2>On Hold</h2>
+        <h2>In Transit>></h2>
         <div class="status-line">
-            <span>On Hold</span>
+            <span>In Transit>></span>
             <span>&#10004;</span>
         </div>
         <div class="tracking-result-container">
             <div class="tracking-details">
-                <p><strong>Schdule Delivery:</strong> Thursday, 20/03/2025</p>
-                <p><strong>Delivery Time:</strong> 4:42 P.M.</p>
-                <p><strong>Held by:</strong> Local Police</p>
-                <p><strong>Location:</strong> TX, US</p>
-                <p> <strong> Receiver's Address:</strong> 16 Ajegunle Street Ago iwoye</p>
-                <p> <strong> Receiver's Name:</strong> Adedayo Samuel</p>
+                <p><strong>Schdule Delivery:</strong> Wednesday, 01/04/2025</p>
+                <p><strong>Delivery Time:</strong> 15:00 P.M.</p>
+                <!-- <p><strong>Hold by:</strong> Local Police</p> -->
+                <p><strong>Location:</strong> ontario, Canada</p>
+                <p> <strong> Receiver's Address:</strong> 416 Limridge Rd East Hamilton Ontario L9A 2S7 unit 208 buzzer code 1110</p>
+                <p> <strong> Receiver's Name:</strong>GAIL MARLENE</p>
             </div>
             <div class="tracking-status">
-                <p><strong>Status:</strong> On hold</p>
+                <p><strong>Status:</strong><i> In Transit</i></p>
                 <p><strong>Proof of Delivery:</strong> Available</p>
                 <p><a href="#">View Proof</a></p>
             </div>
