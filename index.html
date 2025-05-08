@@ -87,7 +87,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             height: 45px;
-            margin-top:0px;
+            margin-top: 0px;
         }
 
         .track-container button {
@@ -121,6 +121,32 @@
             border-radius: 50px;
             width: 100px;
         } */
+        .ups-marquee {
+            background: #FFB612;
+            color: white;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ups-marquee span {
+            display: inline-block;
+            animation: scrollText 15s linear infinite;
+        }
+
+        .ups-marquee:hover span {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 
@@ -128,11 +154,11 @@
 
     <div class="header">
         <div class="logo">
-            <img src="UPS-Logo.png" alt="UPS Logo">
+            <img src="asset/UPS-Logo.png" alt="UPS Logo">
         </div>
         <div class="actions">
-            <div><img src="search-icon-2-614x460.png" alt=""></div>
-            <div class="user-icon"><img src="1077114.png" alt=""></div>
+            <div><img src="asset/search-icon-2-614x460.png" alt=""></div>
+            <div class="user-icon"><img src="asset/1077114.png" alt=""></div>
             <div>☰</div>
         </div>
     </div>
@@ -140,16 +166,20 @@
     <div class="banner">
         Save Up to 83%* on <br> Shipping
     </div>
-
+    <marquee behavior="scroll" direction="left" style="background:#FFB612; color:black; padding:10px;">
+        🚚 Free Shipping on Orders Over $50 | Track Your Package in Real-Time | UPS Delivery Guarantee
+    </marquee>
     <div class="track-container">
-        <h2>Track</h2>
+        <h2>Track <img src="" alt=""></h2>
         <p> <i>Enter up to 12 tracking numbers, one per line.</i></p>
 
         <div style="padding: 20px; text-align: center;">
             <input type="text" id="trackingNumber" placeholder="Enter Tracking Number" />
             <button onclick="trackPackage()">Track</button>
-            <p id="errorMessage" style="color: red; display: none;">Currently, we are not able to provide the tracking details. We can’t locate shipments if we haven’t received information from the shipper yet, or if the package information is older than 120 days.</p>
-          </div>
+            <p id="errorMessage" style="color: red; display: none;">Currently, we are not able to provide the tracking
+                details. We can’t locate shipments if we haven’t received information from the shipper yet, or if the
+                package information is older than 120 days.</p>
+        </div>
         <p>Need to Change a Delivery?<br>You can access available options by tracking the package and then selecting
             "Change My Delivery".</p>
     </div>
@@ -159,18 +189,18 @@
     </div>
     <script>
         function trackPackage() {
-          var input = document.getElementById("trackingNumber").value.trim();
-          const validTrackingNumbers = ["281442392830", "PKG123456", "1Z691R0A1541509593"]; // your custom IDs
-      
-          if (validTrackingNumbers.includes(input)) {
-            // Redirect and pass the tracking number as a URL parameter
-            window.location.href = "tracking.html?trackingId=" + encodeURIComponent(input);
-          } else {
-            document.getElementById("errorMessage").style.display = "block";
-          }
+            var input = document.getElementById("trackingNumber").value.trim();
+            const validTrackingNumbers = ["281442392830", "PKG123456", "1Z691R0A1541509593"]; // your custom IDs
+
+            if (validTrackingNumbers.includes(input)) {
+                // Redirect and pass the tracking number as a URL parameter
+                window.location.href = "tracking.html?trackingId=" + encodeURIComponent(input);
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
         }
-      </script>
-    
+    </script>
+
 </body>
 
 </html>
