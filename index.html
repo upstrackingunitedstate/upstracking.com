@@ -55,7 +55,7 @@
         }
 
         .banner {
-            background: #145388;
+            background:  #351C15;
             color: white;
             padding: 20px;
             text-align: center;
@@ -147,6 +147,91 @@
                 transform: translateX(-100%);
             }
         }
+
+        .ups-footer {
+            background-color: #351C15;
+            /* UPS brown */
+            color: white;
+            padding: 30px 0;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            color: #FFB500;
+            /* UPS gold */
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #FFB500;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                flex: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -166,9 +251,10 @@
     <div class="banner">
         Save Up to 83%* on <br> Shipping
     </div>
-    <marquee behavior="scroll" direction="left" style="background:#FFB612; color:black; padding:10px;">
+    <!-- <marquee behavior="scroll" direction="left" style="background:#351C15; color:white; padding:10px;">
         🚚 Free Shipping on Orders Over $50 | Track Your Package in Real-Time | UPS Delivery Guarantee
-    </marquee>
+    </marquee> -->
+    
     <div class="track-container">
         <h2>Track <img src="" alt=""></h2>
         <p> <i>Enter up to 12 tracking numbers, one per line.</i></p>
@@ -187,6 +273,64 @@
     <div class="link">
         <a href="#">Track by Reference Number</a>
     </div>
+    <footer class="ups-footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3>Shipping</h3>
+                <ul>
+                    <li><a href="#">Create a Shipment</a></li>
+                    <li><a href="#">Schedule a Pickup</a></li>
+                    <li><a href="#">Shipping Rates</a></li>
+                    <li><a href="#">Shipping Services</a></li>
+                    <li><a href="#">Tracking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Tracking</h3>
+                <ul>
+                    <li><a href="#">Track a Package</a></li>
+                    <li><a href="#">Tracking Support</a></li>
+                    <li><a href="#">UPS My Choice</a></li>
+                    <li><a href="#">Quantum View</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">Claims</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About UPS</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Pressroom</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Terms of Use</a> |
+                <a href="#">Privacy</a> |
+                <a href="#">Security</a> |
+                <a href="#">Cookies</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 United Parcel Service of America, Inc. UPS, the UPS brandmark and the color brown are
+                trademarks of United Parcel Service of America, Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
     <script>
         function trackPackage() {
             var input = document.getElementById("trackingNumber").value.trim();
