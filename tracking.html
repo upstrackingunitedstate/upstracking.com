@@ -15,6 +15,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
     .header {
@@ -22,6 +23,14 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 800px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .container {
@@ -32,6 +41,8 @@
       margin-top: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* --- Mobile (Small Screen) Styles --- */
@@ -65,26 +76,20 @@
       align-items: center;
       justify-content: space-between;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-
-
     }
 
     .logo {
       display: flex;
       align-items: center;
-
     }
 
     .logo img {
       height: 70px;
-
     }
 
     .actions {
       display: flex;
       align-items: center;
-
     }
 
     .actions img {
@@ -95,7 +100,6 @@
       margin-left: 15px;
       width: 30px;
       height: 30px;
-      /* background: #ffcc00; */
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -127,7 +131,6 @@
       position: relative;
       height: 40px;
       margin-bottom: 30px;
-
     }
 
     .progress-bar {
@@ -136,14 +139,11 @@
       left: 0;
       right: 0;
       height: 8px;
-      /* background: linear-gradient(to right, red 80%, #d3d3d3 80%);  */
       background: linear-gradient(to right, #00704A 93%, #d3d3d3 93%);
       border-radius: 10px;
       transform: translateY(-50%);
       margin-left: 30px;
       margin-right: 30px;
-
-
     }
 
     .progress-icon {
@@ -208,71 +208,219 @@
       justify-content: space-between;
       gap: 20px;
     }
-  </style>
+    
+    .ups-footer {
+      background-color: #351C15;
+      color: white;
+      padding: 30px 0;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+      width: 100%;
+    }
 
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column h3 {
+      color: #FFB500;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #FFB500;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #555;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .footer-column {
+        flex: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="main-container">
+    <div class="header">
+      <div class="logo">
+        <img src="asset/UPS-Logo.png" alt="UPS Logo">
+      </div>
+      <div class="actions">
+        <div><img src="asset/search-icon-2-614x460.png" alt=""></div>
+        <div class="user-icon"><img src="asset/1077114.png" alt=""></div>
+        <div>☰</div>
+      </div>
+    </div>
+    <marquee behavior="scroll" direction="left" style="background:#351C15; color: white; padding:10px;">
+      Your package arrived at 724 N 12th St
+      Poplar Bluff, Missouri(MO), 63901
+    </marquee>
+    <div class="container hidden" id="trackingResult">
+      <div class="status">In Transit</div>
+      <div class="progress-wrapper">
+        <div class="progress-bar"></div>
+        <div class="progress-icon">&gt;</div>
+      </div>
+      <div class="text-label">Scheduled Delivery/ Estimated Time</div>
+      <div class="day">Tuesday</div>
+      <div class="date">20th/05/2025</div>
+      <div class="endofday">by End of Day</div>
 
-  <div class="header">
-    <div class="logo">
-      <img src="asset/UPS-Logo.png" alt="UPS Logo">
+      <div class="tracking-result-container">
+        <div class="tracking-details">
+          <p><strong>Schedule Delivery:</strong> Tuesday, 20th/05/2025</p>
+          <p><strong>Delivery Time:</strong>12:00PM</p>
+          <p><strong>Sender's Name:</strong> Facebook lottery</p>
+          <p><strong>Receiver's Address:</strong>16511 Wildhorse Creek Rd, Apt 134 Chesterfield, MO 63017</p>
+          <p><strong>Receiver's Name:</strong> Karen Nosovitch</p>
+        </div>
+        <div class="tracking-status">
+          <p><strong>Status:</strong> <em>
+              Your package arrived at 724 N 12th St
+              Poplar Bluff, Missouri(MO), 63901
+            </em> </p>
+          <p><strong>Proof of Delivery:</strong> Available</p>
+          <p><a href="asset/proof.jpeg">View Proof</a></p>
+        </div>
+      </div>
     </div>
-    <div class="actions">
-      <div><img src="asset/search-icon-2-614x460.png" alt=""></div>
-      <div class="user-icon"><img src="asset/1077114.png" alt=""></div>
-      <div>☰</div>
-    </div>
+    
+    <footer class="ups-footer">
+      <div class="footer-content">
+        <div class="footer-top">
+          <div class="footer-column">
+            <h3>Shipping</h3>
+            <ul>
+              <li><a href="#">Create a Shipment</a></li>
+              <li><a href="#">Schedule a Pickup</a></li>
+              <li><a href="#">Shipping Rates</a></li>
+              <li><a href="#">Shipping Services</a></li>
+              <li><a href="#">Tracking</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Tracking</h3>
+            <ul>
+              <li><a href="#">Track a Package</a></li>
+              <li><a href="#">Tracking Support</a></li>
+              <li><a href="#">UPS My Choice</a></li>
+              <li><a href="#">Quantum View</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Customer Support</a></li>
+              <li><a href="#">Claims</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Help Center</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About UPS</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Pressroom</a></li>
+              <li><a href="#">Sustainability</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-links">
+            <a href="#">Terms of Use</a> |
+            <a href="#">Privacy</a> |
+            <a href="#">Security</a> |
+            <a href="#">Cookies</a>
+          </div>
+          <div class="copyright">
+            &copy; 2023 United Parcel Service of America, Inc. UPS, the UPS brandmark and the color brown are
+            trademarks of United Parcel Service of America, Inc. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
-  <marquee behavior="scroll" direction="left" style="background:#FFB612; color:black; padding:10px;">
-     Your package arrived at 724 N 12th St
-            Poplar Bluff, Missouri(MO), 63901
-  </marquee>
-  <div class="container hidden" id="trackingResult">
-    <div class="status">In Transit</div>
-    <div class="progress-wrapper">
-      <div class="progress-bar"></div>
-      <div class="progress-icon">&gt;</div>
-    </div>
-    <div class="text-label">Scheduled Delivery/ Estimated Time</div>
-    <div class="day">Tuesday</div>
-    <div class="date">20th/05/2025</div>
-    <div class="endofday">by End of Day</div>
 
+  <script>
+    function trackPackage() {
+      var input = document.getElementById("trackingNumber").value.trim();
+      if (input === "TYP691R0A1541509593US") { // Valid tracking ID
+        window.location.href = "tracking.html?trackingId";
+      } else {
+        document.getElementById("errorMessage").style.display = "block";
+      }
+    }
+  </script>
 
-    <div class="tracking-result-container">
-      <div class="tracking-details">
-        <p><strong>Schedule Delivery:</strong> Tuesday, 20th/05/2025</p>
-        <p><strong>Delivery Time:</strong>12:00PM</p>
-        <p><strong>Sender's Name:</strong> Facebook lottery</p>
-        <p><strong>Receiver's Address:</strong>16511 Wildhorse Creek Rd, Apt 134 Chesterfield, MO 63017</p>
-        <p><strong>Receiver's Name:</strong> Karen Nosovitch</p>
-      </div>
-      <div class="tracking-status">
-        <p><strong>Status:</strong> <em>
-            Your package arrived at 724 N 12th St
-            Poplar Bluff, Missouri(MO), 63901
-          </em> </p>
-        <p><strong>Proof of Delivery:</strong> Available</p>
-        <p><a href="asset/proof.jpeg">View Proof</a></p>
-      </div>
-      <script>
-        function trackPackage() {
-          var input = document.getElementById("trackingNumber").value.trim();
-          if (input === "TYP691R0A1541509593US") { // Valid tracking ID
-            window.location.href = "tracking.html?trackingId";
-          } else {
-            document.getElementById("errorMessage").style.display = "block";
-          }
-        }
-      </script>
-
-      <script>
-        setTimeout(function () {
-          alert("You have been logged out.");
-          window.location.href = "index.html"; // Change this to your logout or home page
-        }, 3 * 60 * 1000); // 3 minutes = 180,000 milliseconds
-      </script>
+  <script>
+    setTimeout(function () {
+      alert("You have been logged out.");
+      window.location.href = "index.html"; // Change this to your logout or home page
+    }, 3 * 60 * 1000); // 3 minutes = 180,000 milliseconds
+  </script>
 </body>
-
 </html>
