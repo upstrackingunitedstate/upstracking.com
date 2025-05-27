@@ -229,31 +229,6 @@
       margin-bottom: 5%;
     }
 
-    /* .progress-icon {
-      animation: heartbeat 1.5s infinite;
-    }
-
-    @keyframes heartbeat {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      14% {
-        transform: translate(-50%, -50%) scale(1.3);
-      }
-
-      28% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      42% {
-        transform: translate(-50%, -50%) scale(1.3);
-      }
-
-      70% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-    } */
     .progress-icon {
       box-shadow: 0 0 0 4px rgba(0, 112, 74, 0.2);
       animation: radar 2s infinite;
@@ -356,15 +331,73 @@
       line-height: 1.5;
     }
 
+    /* New Processing Screen Styles */
+    .processing-screen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .processing-icon-large {
+      font-size: 60px;
+      color: #00704a;
+      margin-bottom: 20px;
+      animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .processing-text {
+      font-size: 24px;
+      color: #351C15;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .processing-subtext {
+      font-size: 16px;
+      color: #555;
+      text-align: center;
+      max-width: 80%;
+    }
+
     @media (max-width: 768px) {
       .footer-column {
         flex: 100%;
+      }
+      
+      .processing-text {
+        font-size: 20px;
+      }
+      
+      .processing-subtext {
+        font-size: 14px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- Processing Screen (hidden by default) -->
+  <div class="processing-screen" id="processingScreen">
+    <div class="processing-icon-large">
+      <i class="fas fa-circle-notch"></i>
+    </div>
+    <div class="processing-text">Tracking Your Package</div>
+    <div class="processing-subtext">Please wait while we locate your shipment information...</div>
+  </div>
+
   <div class="main-container">
     <div class="header">
       <div class="logo">
@@ -470,11 +503,20 @@
     </footer>
   </div>
 
+  <!-- Add Font Awesome for the spinner icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <script>
     function trackPackage() {
       var input = document.getElementById("trackingNumber").value.trim();
       if (input === "TYP691R0A1541509593US") { // Valid tracking ID
-        window.location.href = "tracking.html?trackingId";
+        // Show processing screen
+        document.getElementById("processingScreen").style.display = "flex";
+        
+        // After 30 seconds, redirect to tracking page
+        setTimeout(function() {
+          window.location.href = "tracking.html?trackingId";
+        }, 30000); // 30 seconds
       } else {
         document.getElementById("errorMessage").style.display = "block";
       }
