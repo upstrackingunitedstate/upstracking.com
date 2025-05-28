@@ -22,6 +22,7 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .logo {
@@ -38,19 +39,112 @@
             align-items: center;
         }
 
-        .actions img {
-            width: 30px;
+        .action-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #351C15;
+            font-size: 22px;
+            margin-left: 15px;
         }
 
-        .actions div {
-            margin-left: 15px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-radius: 0 0 0 8px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-menu a {
+            color: #351C15;
+            text-decoration: none;
+            display: block;
+        }
+
+        .mobile-menu li:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Search Bar */
+        .search-container {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            width: 300px;
+        }
+
+        .search-container.active {
+            display: block;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .user-menu.active {
+            display: block;
+        }
+
+        .user-menu ul {
+            list-style: none;
+        }
+
+        .user-menu li {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-menu a {
+            color: #351C15;
+            text-decoration: none;
+            display: block;
+        }
+
+        .user-menu li:hover {
+            background-color: #f5f5f5;
         }
 
         .banner {
@@ -156,6 +250,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-100%);
             }
@@ -175,26 +270,31 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .processing-icon-large {
             font-size: 60px;
             color: #351C15;
             margin-bottom: 20px;
             animation: spin 2s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .processing-text {
             font-size: 24px;
             color: #351C15;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         .processing-subtext {
             font-size: 16px;
             color: #555;
@@ -205,72 +305,82 @@
         .ups-footer {
             background-color: #351C15;
             color: white;
-            padding: 30px 0;
+            padding: 30px 0 20px;
             font-family: Arial, sans-serif;
-            margin-top: 20px;
+            width: 100%;
         }
 
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
+        .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px 30px;
-            flex-wrap: wrap;
+            width: 95%;
         }
 
-        .footer-column {
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #555;
+        }
+
+        .footer-section {
             flex: 1;
             min-width: 200px;
             margin-bottom: 20px;
+            padding: 0 15px;
         }
 
-        .footer-column h3 {
+        .footer-section h3 {
             color: #FFB500;
             margin-bottom: 15px;
             font-size: 18px;
         }
 
-        .footer-column ul {
+        .footer-section ul {
             list-style: none;
             padding: 0;
-            margin: 0;
         }
 
-        .footer-column li {
+        .footer-section li {
             margin-bottom: 8px;
         }
 
-        .footer-column a {
+        .footer-section a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
         }
 
-        .footer-column a:hover {
+        .footer-section a:hover {
             color: #FFB500;
         }
 
+        .footer-section i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
         .footer-bottom {
-            border-top: 1px solid #555;
             padding-top: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
             text-align: center;
             font-size: 14px;
         }
 
-        .footer-links {
+        .legal-links {
             margin-bottom: 10px;
         }
 
-        .footer-links a {
+        .legal-links a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
         }
 
-        .footer-links a:hover {
+        .legal-links a:hover {
             text-decoration: underline;
         }
 
@@ -280,16 +390,26 @@
         }
 
         @media (max-width: 768px) {
+            .footer-section {
+                flex: 100%;
+            }
+
+            .legal-links a {
+                margin: 0 5px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .footer-column {
                 flex: 100%;
             }
-            
+
             .banner {
                 font-size: 22px;
                 height: auto;
                 padding: 15px;
             }
-            
+
             .marquee-content {
                 animation-duration: 35s;
             }
@@ -312,16 +432,42 @@
             <img src="asset/UPS-Logo.png" alt="UPS Logo">
         </div>
         <div class="actions">
-            <div><img src="asset/search-icon-2-614x460.png" alt="Search"></div>
-            <div class="user-icon"><img src="asset/1077114.png" alt="Account"></div>
-            <div>☰</div>
+            <div class="action-icon search-icon" id="searchIcon">
+                <i class="fas fa-search"></i>
+                <div class="search-container" id="searchContainer">
+                    <input type="text" placeholder="Enter tracking number...">
+                </div>
+            </div>
+            <div class="action-icon user-icon" id="userIcon">
+                <i class="fas fa-user"></i>
+                <div class="user-menu" id="userMenu">
+                    <ul>
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Shipments</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="action-icon hamburger-menu" id="hamburgerMenu">
+                <i class="fas fa-bars"></i>
+                <div class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Tracking</a></li>
+                        <li><a href="shipping.html">Shipping</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="banner">
         Save Up to 83%* on <br> Shipping
     </div>
-    
+
     <!-- Improved Marquee -->
     <div class="ups-marquee">
         <div class="marquee-content">
@@ -332,7 +478,7 @@
             <span><i class="fas fa-globe"></i> Worldwide Shipping Available</span>
         </div>
     </div>
-    
+
     <div class="track-container">
         <h2>Track <img src="" alt=""></h2>
         <p> <i>Enter up to 12 tracking numbers, one per line.</i></p>
@@ -347,71 +493,104 @@
         <p>Need to Change a Delivery?<br>You can access available options by tracking the package and then selecting
             "Change My Delivery".</p>
     </div>
-    
+
     <div class="link">
         <a href="#">Track by Reference Number</a>
     </div>
-    
-    <footer class="ups-footer">
-        <div class="footer-top">
-            <div class="footer-column">
-                <h3>Shipping</h3>
+
+   <footer class="ups-footer">
+    <div class="footer-content">
+        <div class="footer-links">
+            <div class="footer-section">
+                <h3>This Site</h3>
                 <ul>
-                    <li><a href="#">Create a Shipment</a></li>
-                    <li><a href="#">Schedule a Pickup</a></li>
-                    <li><a href="#">Shipping Rates</a></li>
-                    <li><a href="#">Shipping Services</a></li>
+                    <li><a href="#">Home</a></li>
                     <li><a href="#">Tracking</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Support</a></li>
                 </ul>
             </div>
-
-            <div class="footer-column">
-                <h3>Tracking</h3>
+            <div class="footer-section">
+                <h3>UPS Sites</h3>
                 <ul>
-                    <li><a href="#">Track a Package</a></li>
-                    <li><a href="#">Tracking Support</a></li>
-                    <li><a href="#">UPS My Choice</a></li>
-                    <li><a href="#">Quantum View</a></li>
+                    <li><a href="#">UPS.com</a></li>
+                    <li><a href="#">UPS Careers</a></li>
+                    <li><a href="#">UPS Pressroom</a></li>
+                    <li><a href="#">UPS Investor Relations</a></li>
                 </ul>
             </div>
-
-            <div class="footer-column">
-                <h3>Support</h3>
+            <div class="footer-section">
+                <h3>UPS Companies</h3>
                 <ul>
-                    <li><a href="#">Customer Support</a></li>
-                    <li><a href="#">Claims</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">UPS Freight</a></li>
+                    <li><a href="#">UPS Capital</a></li>
+                    <li><a href="#">UPS Supply Chain</a></li>
+                    <li><a href="#">UPS Healthcare</a></li>
                 </ul>
             </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
+            <div class="footer-section">
+                <h3>Connect with Us</h3>
                 <ul>
-                    <li><a href="#">About UPS</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Investor Relations</a></li>
-                    <li><a href="#">Pressroom</a></li>
-                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <div class="footer-links">
+            <div class="legal-links">
+                <a href="#">Legal</a> |
                 <a href="#">Terms of Use</a> |
                 <a href="#">Privacy</a> |
-                <a href="#">Security</a> |
-                <a href="#">Cookies</a>
+                <a href="#">Security</a>
             </div>
             <div class="copyright">
-                &copy; 2023 United Parcel Service of America, Inc. UPS, the UPS brandmark and the color brown are
-                trademarks of United Parcel Service of America, Inc. All rights reserved.
+                Copyright &copy;1994-2025 United Parcel Service of America, Inc. All rights reserved.
             </div>
         </div>
-    </footer>
-    
+    </div>
+</footer>
+
     <script>
+        // Toggle mobile menu
+        document.getElementById('hamburgerMenu').addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('searchContainer').classList.remove('active');
+            document.getElementById('userMenu').classList.remove('active');
+        });
+
+        // Toggle search bar
+        document.getElementById('searchIcon').addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.getElementById('searchContainer').classList.toggle('active');
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.getElementById('userMenu').classList.remove('active');
+        });
+
+        // Toggle user menu
+        document.getElementById('userIcon').addEventListener('click', function (e) {
+            e.stopPropagation();
+            document.getElementById('userMenu').classList.toggle('active');
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.getElementById('searchContainer').classList.remove('active');
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.actions')) {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.getElementById('searchContainer').classList.remove('active');
+                document.getElementById('userMenu').classList.remove('active');
+            }
+        });
+
+        // Prevent search input from closing menu when clicked
+        document.querySelector('.search-container input')?.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
         function trackPackage() {
             var input = document.getElementById("trackingNumber").value.trim();
             const validTrackingNumbers = ["281442392830", "PKG123456", "TYP691R0A1541509593US"]; // your custom IDs
@@ -419,21 +598,24 @@
             if (validTrackingNumbers.includes(input)) {
                 // Show processing screen
                 document.getElementById("processingScreen").style.display = "flex";
-                
+
                 // After 3 seconds, redirect to tracking page
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.href = "tracking.html?trackingId=" + encodeURIComponent(input);
-                }, 5000); // 3 seconds (changed from 30 for better UX)
+                }, 3000);
             } else {
                 document.getElementById("errorMessage").style.display = "block";
             }
         }
-        
+
         // Hide error message when user starts typing
-        document.getElementById("trackingNumber").addEventListener("input", function() {
+        document.getElementById("trackingNumber").addEventListener("input", function () {
             document.getElementById("errorMessage").style.display = "none";
         });
-    </script>
 
+        // Auto logout after 3 minutes
+
+    </script>
 </body>
+
 </html>
